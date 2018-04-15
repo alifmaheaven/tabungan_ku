@@ -4,4 +4,17 @@
     <string name="next">LANJUT</string>
     <string name="skip">LEWATI</string>
     <string name="start">MULAI</string>
+
+    <string name="slide_1_judul">Target Barang</string>
+    <string name="slide_1_deskripsi">Targetkan barang sesuai keinginanmu</string>
+
+    <string name="slide_2_judul">Uang</string>
+    <string name="slide_2_deskripsi">Simpanlah uangmu agar memenuhi target</string>
+
+    <string name="slide_3_judul">Waktu</string>
+    <string name="slide_3_deskripsi">Gunakan waktumu untuk menabung</string>
+
+    <string name="slide_4_judul">Save Money</string>
+    <string name="slide_4_deskripsi">Jangan gunakan sisa tabungan target barang untuk hal yang tidak berguna</string>
+
 </resources>
