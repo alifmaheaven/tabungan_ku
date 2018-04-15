@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TabunganKu</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">LANJUT</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">MULAI</string>
 </resources>
