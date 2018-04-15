@@ -1,9 +1,20 @@
 package id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private ViewPager viewPager;
+    private MyViewPagerAdapter myViewPagerAdapter;
+    private LinearLayout dotsLayout;
+    private TextView[] dots;
+    private int[] layouts;
+    private Button btnSkip, btnNext;
+    private Prefs prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
