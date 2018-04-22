@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "50117002490",
+    "firebase_url": "https://tabunganku-3577a.firebaseio.com",
+    "project_id": "tabunganku-3577a",
+    "storage_bucket": "tabunganku-3577a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50117002490:android:0bc1d4c3a2282875",
+        "android_client_info": {
+          "package_name": "id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50117002490-2t2emulbl5hch2c8lms35cho2idursbj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku",
+            "certificate_hash": "0eb679d8883f840ef8927ef621a4b607370d41fa"
+          }
+        },
+        {
+          "client_id": "50117002490-i39l4npuo1fqsiirpn8v2lpbsb632m6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEBceW6HLfA5L-xKLYlaETY_clOEcfHKE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50117002490-i39l4npuo1fqsiirpn8v2lpbsb632m6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
