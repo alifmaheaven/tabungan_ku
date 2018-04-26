@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final int RC_SIGN_IN = 12345;
     SignInButton signInButton;
 
+
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
 
@@ -79,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //form();
+                            form();
                         } else {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                         }
@@ -87,9 +88,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
     }
 
-    //private void form() {
-    //    startActivity(new Intent(MainActivity.this, .class));
-    //}
+    private void form() {
+        startActivity(new Intent(LoginActivity.this, Page1Activity.class));
+    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -102,7 +103,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.login_button:
                 signIn();
                 break;
+
+
         }
     }
+
 
 }

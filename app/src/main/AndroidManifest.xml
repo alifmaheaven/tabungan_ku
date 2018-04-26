@@ -24,7 +24,9 @@
         <activity android:name=".WelcomeActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".Page1Activity" />
+        <activity android:name=".IsiRencana"></activity>
     </application>
 
 </manifest>
