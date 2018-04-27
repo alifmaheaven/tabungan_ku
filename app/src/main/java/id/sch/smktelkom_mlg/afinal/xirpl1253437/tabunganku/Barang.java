@@ -10,6 +10,10 @@ public class Barang {
         this.harga = harga;
     }
 
+    public Barang() {
+
+    }
+
     public String getNama() {
         return nama;
     }

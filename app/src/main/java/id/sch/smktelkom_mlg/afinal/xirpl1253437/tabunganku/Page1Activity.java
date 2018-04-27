@@ -1,36 +1,65 @@
 package id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
-public class Page1Activity extends AppCompatActivity implements View.OnClickListener {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-    Button buttonisiform;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Page1Activity extends AppCompatActivity {
+
+    protected Context context;
+    Barang barang;
+    List<Barang> barangList = new ArrayList<>();
+    RecyclerView.Adapter adapter;
+    private RecyclerView listMember;
+    private LinearLayoutManager linearLayoutManager;
+    private BarangListAdapter barangListAdapter;
+    private DatabaseReference mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
 
-        buttonisiform = findViewById(R.id.buttonIsiForm);
+        listMember = findViewById(R.id.rv);
+        linearLayoutManager = new LinearLayoutManager(context);
+        barangListAdapter = new BarangListAdapter();
 
-        buttonisiform.setOnClickListener(this);
+        listMember.setLayoutManager(linearLayoutManager);
+        listMember.setAdapter(barangListAdapter);
 
+        loadData();
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == buttonisiform) {
-            pindahKeForm();
-        }
+    private void loadData() {
+        barang = new Barang();
+        mData = FirebaseDatabase.getInstance().getReference("user");
+        mData.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                barangListAdapter.clear();
+                barangList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Barang barang = snapshot.getValue(Barang.class);
+                    barangList.add(barang);
+                }
+                barangListAdapter.addAll(barangList);
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-    }
-
-    private void pindahKeForm() {
-        startActivity(new Intent(Page1Activity.this, IsiRencana.class));
+            }
+        });
     }
 }
