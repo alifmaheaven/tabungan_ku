@@ -2,33 +2,32 @@ package id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku;
 
 public class Barang {
 
-    private String nama;
-    private String harga;
-
-    public Barang(String nama, String harga) {
-        this.nama = nama;
-        this.harga = harga;
-    }
+    private String namabarang;
+    private String targetharga;
 
     public Barang() {
 
     }
 
-    public String getNama() {
-        return nama;
+    public Barang(String namabarang, String targetharga) {
+
+        this.namabarang = namabarang;
+        this.targetharga = targetharga;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getNamabarang() {
+        return namabarang;
     }
 
-    public String getHarga() {
-        return harga;
+    public void setNamabarang(String namabarang) {
+        this.namabarang = namabarang;
     }
 
-    public void setHarga(String harga) {
-        this.harga = harga;
+    public String getTargetharga() {
+        return targetharga;
     }
 
-
+    public void setTargetharga(String targetharga) {
+        this.targetharga = targetharga;
+    }
 }

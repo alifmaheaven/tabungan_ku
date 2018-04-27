@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,7 @@ public class Page1Activity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private BarangListAdapter barangListAdapter;
     private DatabaseReference mData;
+    private DatabaseReference mDatas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,10 @@ public class Page1Activity extends AppCompatActivity {
 
     private void loadData() {
         barang = new Barang();
-        mData = FirebaseDatabase.getInstance().getReference("user");
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        mData = FirebaseDatabase.getInstance().getReference("user").child(user.getUid()).child("barang");
+
         mData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

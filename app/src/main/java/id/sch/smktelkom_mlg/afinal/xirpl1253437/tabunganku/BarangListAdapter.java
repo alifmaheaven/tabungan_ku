@@ -60,8 +60,8 @@ public class BarangListAdapter extends RecyclerView.Adapter<BarangListAdapter.Me
         final Barang barang = barangList.get(position);
 
         // holder.memberThumb.setImageResource(travel.getThumb());
-        holder.memberNama.setText(barang.getNama());
-        holder.memberHarga.setText(barang.getHarga());
+        holder.memberNama.setText(barang.getNamabarang());
+        holder.memberHarga.setText(barang.getTargetharga());
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -69,11 +69,11 @@ public class BarangListAdapter extends RecyclerView.Adapter<BarangListAdapter.Me
 
             @Override
             public void onClick(View view) {
-                String nama = holder.memberNama.getText().toString();
-                String harga = holder.memberHarga.getText().toString();
+                String namabarang = holder.memberNama.getText().toString();
+                String targetharga = holder.memberHarga.getText().toString();
                 Intent i = new Intent(view.getContext(), Page1Activity.class);
-                i.putExtra("nm", nama);
-                i.putExtra("hg", harga);
+                i.putExtra("nm", namabarang);
+                i.putExtra("hg", targetharga);
                 view.getContext().startActivity(i);
             }
         });
