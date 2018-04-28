@@ -4,15 +4,26 @@ public class Barang {
 
     private String namabarang;
     private String targetharga;
+    private String uid;
+
+    public Barang(String namabarang, String targetharga, String uid) {
+
+        this.namabarang = namabarang;
+        this.targetharga = targetharga;
+        this.uid = uid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
 
     public Barang() {
 
     }
 
-    public Barang(String namabarang, String targetharga) {
-
-        this.namabarang = namabarang;
-        this.targetharga = targetharga;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getNamabarang() {
@@ -30,4 +41,6 @@ public class Barang {
     public void setTargetharga(String targetharga) {
         this.targetharga = targetharga;
     }
+
+
 }

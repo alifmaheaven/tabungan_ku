@@ -7,19 +7,19 @@ public class Input {
     private String tanggalawal;
     private String tanggalakhir;
     private int estimasihari;
-
+    String uid;
 
     public Input() {
     }
 
-    public Input(String namabarang, String targetharga, String tanggalawal, String tanggalakhir, int estimasihari, int hargat, int hargas) {
+    public Input(String namabarang, String targetharga, String tanggalawal, String tanggalakhir, int estimasihari, String uid) {
         this.namabarang = namabarang;
         this.targetharga = targetharga;
         this.tanggalawal = tanggalawal;
         this.tanggalakhir = tanggalakhir;
         this.estimasihari = estimasihari;
+        this.uid = uid;
     }
-
 
     public String getNamabarang() {
         return namabarang;
@@ -61,4 +61,11 @@ public class Input {
         this.estimasihari = estimasihari;
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 }
