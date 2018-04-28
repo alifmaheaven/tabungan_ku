@@ -8,16 +8,18 @@ public class Input {
     private String tanggalakhir;
     private int estimasihari;
 
+
     public Input() {
     }
 
-    public Input(String namabarang, String targetharga, String tanggalawal, String tanggalakhir, int estimasihari) {
+    public Input(String namabarang, String targetharga, String tanggalawal, String tanggalakhir, int estimasihari, int hargat, int hargas) {
         this.namabarang = namabarang;
         this.targetharga = targetharga;
         this.tanggalawal = tanggalawal;
         this.tanggalakhir = tanggalakhir;
         this.estimasihari = estimasihari;
     }
+
 
     public String getNamabarang() {
         return namabarang;
@@ -58,4 +60,5 @@ public class Input {
     public void setEstimasihari(int estimasihari) {
         this.estimasihari = estimasihari;
     }
+
 }

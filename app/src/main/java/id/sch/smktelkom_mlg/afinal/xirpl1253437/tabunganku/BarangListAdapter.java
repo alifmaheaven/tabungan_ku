@@ -71,7 +71,8 @@ public class BarangListAdapter extends RecyclerView.Adapter<BarangListAdapter.Me
             public void onClick(View view) {
                 String namabarang = holder.memberNama.getText().toString();
                 String targetharga = holder.memberHarga.getText().toString();
-                Intent i = new Intent(view.getContext(), Page1Activity.class);
+                Intent i = new Intent(view.getContext(), DetailBarangActivity.class);
+
                 i.putExtra("nm", namabarang);
                 i.putExtra("hg", targetharga);
                 view.getContext().startActivity(i);

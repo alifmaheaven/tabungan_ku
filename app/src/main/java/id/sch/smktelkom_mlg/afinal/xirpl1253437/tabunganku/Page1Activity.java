@@ -1,10 +1,13 @@
 package id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,6 +45,14 @@ public class Page1Activity extends AppCompatActivity {
         listMember.setAdapter(barangListAdapter);
 
         loadData();
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Page1Activity.this, IsiRencana.class));
+            }
+        });
     }
 
     private void loadData() {

@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class IsiRencana extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
-    private EditText namaBarang, targetHarga, targetWaktu;
+    private EditText namaBarang, targetHarga;
     private TextView hitunganHariTerakhir, hitunganHariAwal;
     private Button inputData, tanggalAwal, tanggalAkhir;
     private DatePickerDialog formatKalender;
@@ -62,13 +62,13 @@ public class IsiRencana extends AppCompatActivity implements View.OnClickListene
         String tanggalakhir = tanggalAkhir.getText().toString().trim();
         int hitunghariawal = Integer.parseInt(hitunganHariAwal.getText().toString().trim());
         int hitunghariakhir = Integer.parseInt(hitunganHariTerakhir.getText().toString().trim());
-
-
         int estimasihari = hitunghariakhir - hitunghariawal;
+        int hargat = Integer.parseInt(hitunganHariAwal.getText().toString().trim());
+        int hargas = Integer.parseInt(hitunganHariAwal.getText().toString().trim());
 
 
         String uid = mDatabase.push().getKey();
-        Input input = new Input(namabarang, targetharga, tanggalawal, tanggalakhir, estimasihari);
+        Input input = new Input(namabarang, targetharga, tanggalawal, tanggalakhir, estimasihari, hargat, hargas);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 

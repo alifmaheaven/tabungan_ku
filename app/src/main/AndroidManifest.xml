@@ -26,7 +26,9 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".Page1Activity" />
-        <activity android:name=".IsiRencana"></activity>
+        <activity android:name=".IsiRencana" />
+        <activity android:name=".DetailBarangActivity" />
+        <activity android:name=".TabungActivity"></activity>
     </application>
 
 </manifest>
