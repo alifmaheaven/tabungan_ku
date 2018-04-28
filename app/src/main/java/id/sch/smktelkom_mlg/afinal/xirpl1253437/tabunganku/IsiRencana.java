@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class IsiRencana extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
-    private EditText namaBarang, targetHarga, targetWaktu;
+    private EditText namaBarang, targetHarga;
     private TextView hitunganHariTerakhir, hitunganHariAwal;
     private Button inputData, tanggalAwal, tanggalAkhir;
     private DatePickerDialog formatKalender;
@@ -54,32 +54,6 @@ public class IsiRencana extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void input() {
-
-        String namabarang = namaBarang.getText().toString().trim();
-        String targetharga = targetHarga.getText().toString().trim();
-        String tanggalawal = tanggalAwal.getText().toString().trim();
-        String tanggalakhir = tanggalAkhir.getText().toString().trim();
-        int hitunghariawal = Integer.parseInt(hitunganHariAwal.getText().toString().trim());
-        int hitunghariakhir = Integer.parseInt(hitunganHariTerakhir.getText().toString().trim());
-
-
-        int estimasihari = hitunghariakhir - hitunghariawal;
-
-
-        String uid = mDatabase.push().getKey();
-        Input input = new Input(namabarang, targetharga, tanggalawal, tanggalakhir, estimasihari);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-
-        if (user != null) {
-            mDatabase.child("user").child(user.getUid()).child("barang").child(uid).setValue(input);
-            Toast.makeText(this, "Data tersimpan...", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "Gagal tersimpan", Toast.LENGTH_LONG).show();
-        }
-    }
-
     @Override
     public void onClick(View v) {
         if (v == tanggalAwal) {
@@ -97,6 +71,34 @@ public class IsiRencana extends AppCompatActivity implements View.OnClickListene
 
 
     }
+
+    private void input() {
+
+        String namabarang = namaBarang.getText().toString().trim();
+        String targetharga = targetHarga.getText().toString().trim();
+        String tanggalawal = tanggalAwal.getText().toString().trim();
+        String tanggalakhir = tanggalAkhir.getText().toString().trim();
+        int hitunghariawal = Integer.parseInt(hitunganHariAwal.getText().toString().trim());
+        int hitunghariakhir = Integer.parseInt(hitunganHariTerakhir.getText().toString().trim());
+        int estimasihari = hitunghariakhir - hitunghariawal;
+
+
+
+        String uid = mDatabase.push().getKey();
+
+        Input input = new Input(namabarang, targetharga, tanggalawal, tanggalakhir, estimasihari, uid);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        if (user != null) {
+            mDatabase.child("user").child(user.getUid()).child("barang").child(uid).setValue(input);
+            Toast.makeText(this, "Data tersimpan...", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Gagal tersimpan", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 
     private void tampiltanggalakhir() {
         Calendar kalender_akhir = Calendar.getInstance();
