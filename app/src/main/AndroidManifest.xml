@@ -29,6 +29,11 @@
         <activity android:name=".IsiRencana" />
         <activity android:name=".DetailBarangActivity" />
         <activity android:name=".TabungActivity"></activity>
+        <activity android:name=".IsiRencana"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
