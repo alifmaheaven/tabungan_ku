@@ -1,10 +1,12 @@
 package id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +20,7 @@ import java.util.Calendar;
 public class TabungActivity extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
     private TextInputLayout iUang;
+    private TextView idBarang;
     private Button tabung;
 
     @Override
@@ -27,9 +30,13 @@ public class TabungActivity extends AppCompatActivity implements View.OnClickLis
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         iUang = findViewById(R.id.iUang);
-
+        idBarang = findViewById(R.id.idBarang);
+        Intent i = getIntent();
+        idBarang.setText(i.getStringExtra("idbarang"));
         tabung = findViewById(R.id.tabung);
         tabung.setOnClickListener(this);
+
+
     }
 
 
@@ -43,6 +50,7 @@ public class TabungActivity extends AppCompatActivity implements View.OnClickLis
 
     private void input() {
         String iuang = iUang.getEditText().getText().toString();
+        String idbarang = idBarang.getText().toString();
 
 
         // Ini tanggal
@@ -55,14 +63,14 @@ public class TabungActivity extends AppCompatActivity implements View.OnClickLis
 
         String tanggal = hari + "-" + bulan + "-" + tahun;
 
-        String uid = mDatabase.push().getKey();
 
-        InputCicilan input = new InputCicilan(iuang, tanggal);
+        String bid = mDatabase.push().getKey();
+        InputCicilan input = new InputCicilan(bid, iuang, tanggal);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
         if (user != null) {
-            mDatabase.child("user").child(user.getUid()).child("barang").child(uid).child("kampung").setValue(input);
+            mDatabase.child("user").child(user.getUid()).child("barang").child(idbarang).child("barang").child(bid).setValue(input);
             Toast.makeText(this, "Data tersimpan...", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Gagal tersimpan", Toast.LENGTH_LONG).show();

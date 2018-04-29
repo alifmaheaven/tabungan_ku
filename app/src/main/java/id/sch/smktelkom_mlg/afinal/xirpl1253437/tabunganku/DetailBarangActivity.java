@@ -27,7 +27,11 @@ public class DetailBarangActivity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DetailBarangActivity.this, TabungActivity.class));
+                Intent i = new Intent(DetailBarangActivity.this, TabungActivity.class);
+
+                i.putExtra("idbarang", tv.getText());
+
+                startActivity(i);
             }
         });
 
