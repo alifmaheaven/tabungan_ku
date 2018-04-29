@@ -22,7 +22,7 @@ public class DetailBarangActivity extends AppCompatActivity {
 
         initComp();
         Intent i = getIntent();
-        tv.setText(i.getStringExtra("nm"));
+        tv.setText(i.getStringExtra("idbarang"));
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
