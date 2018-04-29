@@ -24,7 +24,6 @@ public class WelcomeActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private Button btnNext, btnSkip;
     //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
@@ -37,12 +36,10 @@ public class WelcomeActivity extends AppCompatActivity {
             if (position == layouts.length - 1) {
 
                 // last page. make button text to GOT IT
-                btnNext.setText(getString(R.string.start));
                 btnSkip.setVisibility(View.GONE);
             } else {
 
                 // still pages are left
-                btnNext.setText(getString(R.string.next));
                 btnSkip.setVisibility(View.VISIBLE);
             }
         }
@@ -57,6 +54,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         }
     };
+    private Button btnNext, btnSkip;
     private PrefManager prefManager;
 
     @Override
@@ -79,7 +77,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.view_pager);
         dotsLayout = findViewById(R.id.layoutDots);
-        btnNext = findViewById(R.id.btn_next);
         btnSkip = findViewById(R.id.btn_skip);
 
 
@@ -106,26 +103,12 @@ public class WelcomeActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 launchHomeScreen();
             }
         });
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                // mengecek page terakhir (slide 4)
-                // jika activity home sudah tampil
-                int current = getItem(+1);
-                if (current < layouts.length) {
-
-                    // move to next screen
-                    viewPager.setCurrentItem(current);
-                } else {
-                    launchHomeScreen();
-                }
-            }
-        });
     }
 
     private void addBottomDots(int currentPage) {
