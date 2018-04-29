@@ -22,12 +22,16 @@ public class DetailBarangActivity extends AppCompatActivity {
 
         initComp();
         Intent i = getIntent();
-        tv.setText(i.getStringExtra("nm"));
+        tv.setText(i.getStringExtra("idbarang"));
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DetailBarangActivity.this, TabungActivity.class));
+                Intent i = new Intent(DetailBarangActivity.this, TabungActivity.class);
+
+                i.putExtra("idbarang", tv.getText());
+
+                startActivity(i);
             }
         });
 
