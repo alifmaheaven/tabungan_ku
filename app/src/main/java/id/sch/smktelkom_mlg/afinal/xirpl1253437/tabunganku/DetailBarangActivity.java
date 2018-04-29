@@ -1,45 +1,29 @@
 package id.sch.smktelkom_mlg.afinal.xirpl1253437.tabunganku;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailBarangActivity extends AppCompatActivity {
-    TextView tv;
-    DatabaseReference mDatabase;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_barang);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        initComp();
-        Intent i = getIntent();
-        tv.setText(i.getStringExtra("idbarang"));
-
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(DetailBarangActivity.this, TabungActivity.class);
-
-                i.putExtra("idbarang", tv.getText());
-
-                startActivity(i);
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
-
-    }
-
-    private void initComp() {
-        tv = findViewById(R.id.tv);
-        mDatabase = FirebaseDatabase.getInstance().getReference("Posts");
     }
 
 }
