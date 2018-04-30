@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+@SuppressWarnings("ALL")
 public class DetailBarangActivity extends AppCompatActivity implements Detail1.OnFragmentInteractionListener, Detail2.OnFragmentInteractionListener {
 
     @Override

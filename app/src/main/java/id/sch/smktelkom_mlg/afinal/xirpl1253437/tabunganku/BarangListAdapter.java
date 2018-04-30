@@ -60,8 +60,16 @@ public class BarangListAdapter extends RecyclerView.Adapter<BarangListAdapter.Me
         final Barang barang = barangList.get(position);
 
         // holder.memberThumb.setImageResource(travel.getThumb());
-        holder.memberUid.setText(barang.getUid());
+
+
+        holder.memberNama.setText(barang.getNamabarang());
         holder.memberHarga.setText(barang.getTargetharga());
+        holder.memberTanggalAkhir.setText(barang.getTanggalakhir());
+        holder.memberTanggalAwal.setText(barang.getTanggalawal());
+        String estimasi = String.valueOf(barang.getEstimasihari());
+        holder.memberEstimasi.setText(estimasi);
+        holder.memberUid.setText(barang.getUid());
+
 
 
 
@@ -70,11 +78,21 @@ public class BarangListAdapter extends RecyclerView.Adapter<BarangListAdapter.Me
 
             @Override
             public void onClick(View view) {
+
                 String uid = holder.memberUid.getText().toString();
                 String targetharga = holder.memberHarga.getText().toString();
+                String namabarang = holder.memberNama.getText().toString();
+                String tanggalawal = holder.memberTanggalAwal.getText().toString();
+                String tanggalakhir = holder.memberTanggalAkhir.getText().toString();
+                String estimasi = holder.memberEstimasi.getText().toString();
+
                 Intent i = new Intent(view.getContext(), DetailBarangActivity.class);
 
-                i.putExtra("idbarang", uid);
+                i.putExtra("nm", namabarang);
+                i.putExtra("es", estimasi);
+                i.putExtra("taw", tanggalawal);
+                i.putExtra("tak", tanggalakhir);
+                i.putExtra("id", uid);
                 i.putExtra("hg", targetharga);
                 view.getContext().startActivity(i);
             }
@@ -98,14 +116,24 @@ public class BarangListAdapter extends RecyclerView.Adapter<BarangListAdapter.Me
     }
 
     public class MemberViewHolder extends RecyclerView.ViewHolder {
-        TextView memberUid;
-        TextView memberHarga;
 
+        TextView memberNama;
+        TextView memberHarga;
+        TextView memberTanggalAwal;
+        TextView memberTanggalAkhir;
+        TextView memberEstimasi;
+        TextView memberUid;
 
         public MemberViewHolder(final View itemView) {
             super(itemView);
-            memberUid = itemView.findViewById(R.id.txtNm);
+
+            memberNama = itemView.findViewById(R.id.txtNm);
             memberHarga = itemView.findViewById(R.id.txtHg);
+            memberTanggalAwal = itemView.findViewById(R.id.txtAw);
+            memberTanggalAkhir = itemView.findViewById(R.id.txtAk);
+            memberEstimasi = itemView.findViewById(R.id.txtEs);
+            memberUid = itemView.findViewById(R.id.txtId);
+
         }
     }
 }
